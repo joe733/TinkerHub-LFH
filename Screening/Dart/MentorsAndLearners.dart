@@ -2,39 +2,37 @@ import 'dart:io';
 import 'dart:core';
 
 class Participant{
-	var name, role, stack, time;
+	var name, role, stack, time; //class members
 
-	Participant(){
-		print("Name: ");
+	Participant(){ //constructor
+		stdout.write("Name: ");
 		name = stdin.readLineSync();
+    stack = [];
 	}
-
+	//class methods
 	void addStacks(){
-		print("Enter number of intersets: ");
+		stdout.write("Enter number of interests: ");
 		int num_intrs = int.parse(stdin.readLineSync());
-		print("Enter $num_intrs skills you are looking for: ");
+		stdout.write("Enter $num_intrs skills you are looking for: ");
 		for(int i=0; i<num_intrs; i++){
 			stack.add(stdin.readLineSync());
 		}
 	}
 	void setMentorOrLearner(){
-		print("Role: ");
+		stdout.write("Role: ");
 		role = stdin.readLineSync();
 	}
 	void setAvailableTime(){
 		if (role == "Mentor"){
+      stdout.write("Enter avalilable time: ");
 			time = int.parse(stdin.readLineSync());
 		}
 	}
 	void getMentor(var stk, var tm){
 		if (role == "Mentor"){
 			for (var tech in stk){
-				var result = stack.Where(tech, orElse: () => null);
-				if (result == null){
-					break;
-        }
-				else if (tm < time){
-					print("$tech : $name");
+				if (stack.contains(tech) && tm < time){
+					print("\n$tech : $name");
 				}
 			}
 		}
@@ -42,11 +40,11 @@ class Participant{
 }
 
 void main(){
-	var person = {}, stack, time;
-	print("Enter number of participants: ");
+	var person = {}, stack = [], time;
+	stdout.write("Enter number of participants: ");
 	int nm = int.parse(stdin.readLineSync());
 	for(int i=0; i<nm; i++){
-		print("\n Person: "+(i+1).toString());
+		print("\nPerson: "+(i+1).toString());
 		person.putIfAbsent(i, () => Participant());
 		person[i].addStacks();
 		person[i].setMentorOrLearner();
@@ -55,17 +53,16 @@ void main(){
 	
 	print("\n\n<< == Database Updated == >>\n\n");
 
-	print("Enter number of intersets: ");
+	stdout.write("Enter number of interests: ");
 	int num_intrs = int.parse(stdin.readLineSync());
-	print("Enter $num_intrs skills you are looking for: ");
+	stdout.write("Enter $num_intrs skills you are looking for: ");
 	for(int i=0; i<num_intrs; i++){
 		stack.add(stdin.readLineSync());
 	}
 
-
-	print("Enter avaliable time: ");
+	stdout.write("Enter avaliable time: ");
 	time = int.parse(stdin.readLineSync());
 	for(int i=0; i<nm; i++){
-		person.putIfAbsent(i, () => person[i].getMentor(stack, time));
+    person[i].getMentor(stack, time);
 	}
 }
