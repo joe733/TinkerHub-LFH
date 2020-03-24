@@ -11,11 +11,36 @@ app = Flask(__name__)
 # ‘/’ URL is bound with hello_world() function. Hence, when the home page of web server is opened in browser, the output of this function will be rendered.
 
 @app.route('/')
-def hello_world():
+def index():
 	# The return type must be a string, dict, tuple
-	# 'Hello World!<br>Hey There!' html ignores \n\t etc.
+	# 'Hello World!<br>Hey There!' HTML ignores \n\t etc.
 	# ('121', 212, '11')
-	return {'key': 'values', '112': [358, 1321], 'single-type-key': {2: 36, 18: (108, 1944)}}
+	# {'key': 'values', '112': [358, 1321], 'single-type-key': {2: 36, 18: (108, 1944)}}
+	return '''<h3>Hello</h3>
+			<h3>Flask</h3>
+			<h3>Mini</h3>
+			<h3>Web</h3>
+			<h3>Framework</h3><br>
+			<marquee behavior="alternate">Not gonna regret this TLFH program...</marquee>
+			<ul>
+			<li>
+			<a href="http://127.0.0.1:5000">Index</a>
+			</li>
+			<li>
+			<a href="http://127.0.0.1:5000/home">Home</a>
+			</li>
+			<li>
+			<a href="http://127.0.0.1:5000/contact_us">Contact Us</a>
+			</li>
+			<ul>'''
+
+@app.route("/home")
+def home():
+	return "<h1>You're @ Home</h1>Goto: <a href=http://127.0.0.1:5000/>Index</a>"
+
+@app.route("/contact_us")
+def contact_us():
+	return "<h1>You're @ Contact Us</h1>Goto: <a href=http://127.0.0.1:5000/>Index</a>"
 
 if __name__ == '__main__':
 	# the run() method of Flask class runs the application on the local development server. `app.run(host, port, debug, options)`

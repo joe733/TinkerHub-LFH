@@ -1,0 +1,81 @@
+<html>
+<head>
+	{% if title %}
+		<title>{{title}} - Blog</title>
+	{% else %}
+		<title>Blog</title>
+	{% endif %}
+</head>
+<body>
+	<h1 align="center">{{user.username}}'s Blog</h1>
+	<div>
+		<div>
+			<p style="font-style: italic;">Source: <a href="https://randomparagraphs.weebly.com/">Weird Articles</a></p>
+		</div>
+		<div>
+			<h3>The young hot wing</h3>
+			<p align="justify">
+				Did you know that a long time ago there once was a young hot wing he was a very nice hot wing except he wanted to he
+				tomato's not just normal tomato's but tomato's from a clowns nose. He had to have the clowns nose's for every meal but
+				they had to be used.
+				this hot wing ended up as a model in the 1780's. He turned out nice and red with hot sauce. One day at a modeling show a
+				guy decided to go up on stage and take a big juicy bite out of the hot wing. The hot wing cried and cried for a million
+				years because he could no longer be a model. After he cried forever he was very moldy so he started to cry again. After
+				that the little moldy parts came of of him and became SERGEANTS they stiched up the hot wings hole. By now the young
+				hot wing is a very old but he still COMPLETED his MODELING career. After the SERGEANTS' fixed up the hot wing they got a
+				hotdog and ate it.
+			</p>
+		</div>
+		<div>
+			<h3>The flying sausage</h3>
+			<p align="justify">
+				As you being my friend I will warn about my human being in the telescope. but what I really need to talk to you about is
+				the flying sausage incident I don’t think I talked to you about this but you really should know that I am secretly a
+				flying sausage not only am I a flying sausage but I am THE flying sausage that took the walking cheeseburgers pickles. I
+				need your help to escape the police men because the only reason I stole his pickles was because I was going through this
+				thing where all I wanted to do was eat PICKLES and my mom wouldn’t buy any. I had no money so I didn’t know what else to
+				do. I walked over to the cheeseburger and took his pickles. apparently thats against the law but I still did it. I
+				already ate the pickles so I can’t return them. I asked bobby jo to put me in a box and send me to north carolina so I am
+				now in new england I need you to go on a secret mission and go buy me a private jet you see I can not fly anymore so I
+				need someone to send me a private JET NOT AN AIRPLANE I already have 2,345 airplanes please do not send me an airplane,
+				please and thank you I hope you can complete my mission.
+			</p>
+		</div>
+		<div>
+			<h3>The magical mystical room</h3>
+			<p align="justify">
+				Okay okay so ha yeah I'm a comedian you listen to me k? Good. So there is this magical room where only I can go in and
+				no, not perry the platypus. Okay I went in this room and I found out I was wonder woman but I'm actually a man so yeah
+				I'm just sitting there then out of the blue a walrus comes up to me and says hey you eat tacos? I say yeah I love tacos,
+				he says oh your the person I've been looking for but I have to leave so yeah your moms chest hair okay then this butt
+				chucker came up to me and started to chuck my butt and I said hey stop chucking my butt so she said oh sorry wrong butt
+				and she left so yeah basically what I'm trying to say is that is my room and only my room and I am a complete weirdo
+				just like your living room floor and okay so I was drinking some vitamin water then this dude comes up to me and smacks
+				the vitamin water out of my hand and I was like dude are you serious that costed more than a microwave on sims which is
+				800 bucks like what I need a duck you got howard the duck playing and I'm like mannn how is this pg? If this was pg it
+				would be appropriate for ages 11 and down like man wow I cant believe my toes! Owie duct tape really hurts like your
+				uncle owch ooh would you like some ice with that burnnnnn yeah so okay bye now I never liked you anyways...
+			</p>
+		</div>
+	</div>
+	<hr>
+	<div>
+		<h3>Commnets</h3>
+		<p  align='right'>
+			{% for comments in posts %}
+				<div>
+					<b>{{ comments.author.username }}</b> : {{ comments.body }}<br>
+				</div>
+			{% endfor %}
+		</p>
+	</div>
+	<hr>
+	<div>
+	<ul>
+		<li><a href="home">Home</a></li>	
+		<li><a href="date">Date</a></li>
+		<li><a href="time">Time</a></li>
+	</ul>
+	</div>
+</body>
+</html>
